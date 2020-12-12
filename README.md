@@ -13,7 +13,7 @@
 
 ## 3. Get Started
 
-To get the right environment settled, you can create an anaconda vitual env by
+To get the right environment settled, you can create an anaconda virtual env by
 
 ```
 conda create -n env_name python=2.7
@@ -39,7 +39,17 @@ For feature extraction, you need to install opencv by
 pip install opencv-python==3.1.0.0
 ```
 
-## 4. Details
+## 4. Download
+
+I put all the data needed in Baidu Pan, including:
+
+- vgg16_weights_th_dim_ordering_th_kernels_notop.h5
+- word2vec_200dim.model
+- image features extracted from 16-layer VGGNet
+
+Link: https://pan.baidu.com/s/1jpgunQHnTqdtmp7c1uZGzg  password: 5wrw
+
+## 5. Details
 
 I rewrite a few parts in the original code to make it run. 
 
@@ -57,6 +67,6 @@ In **multimodal_ner.py**, I do not use the CRF from keras.layer, but use the CRF
 
 After set all the requirements above, you can run the code smoothly.
 
-## 5. More Information 
+## 6. More Information 
 
 For more Information, please check [the original code](https://github.com/jlfu/NERmultimodal) . 
