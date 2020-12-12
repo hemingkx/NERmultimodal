@@ -21,6 +21,8 @@ from ChainCRF import ChainCRF
 from load_data_multimodal import load_data
 from ner_evaluate import evaluate, evaluate_each_class
 
+weight_dir = './weights/multimodal_ner_best.h5'
+
 
 def lambda_rev_gate(x):
     one = K.ones((sent_maxlen, final_w_emb_dim))
@@ -250,10 +252,10 @@ if __name__ == '__main__':
 
         if max_f1 < f1_dev:
             max_f1 = f1_dev
-            model.save_weights('../data/weights/multimodal_ner_best.h5')
+            model.save_weights(weight_dir)
 
     print 'the max dev F1 is:', max_f1
-    model.load_weights('../data/weights/multimodal_ner_best.h5')
+    model.load_weights(weight_dir)
     pred_test = model.predict([te_x, te_x_c, te_img_x], batch_size=batch_size, verbose=1, )
     pre_test_label_index = get_tag_index(pred_test, sent_maxlen, num_classes)
     acc_test, f1_test, p_test, r_test = evaluate(pre_test_label_index, label_test, te_x, labelVoc, sent_maxlen,
